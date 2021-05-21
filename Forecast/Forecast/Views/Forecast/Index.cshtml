@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Forecast.Models.WForecast>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LowTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ForCast)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighTemp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowTemp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ForCast)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { city=item.City }) |
+                @Html.ActionLink("Details", "Details", new { city = item.City }) |
+                @Html.ActionLink("Delete", "Delete", new { city = item.City })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
